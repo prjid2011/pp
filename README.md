@@ -1,4 +1,4 @@
-# Amobee Test Tpplication
+# Test Tpplication
 #### Overview
 The goal of this project is to manage the seller details code, web application with AngularJS (1.7) and webpack (4.41).
 
@@ -12,7 +12,7 @@ Features include:
 #### Instructions
 
 - Start a new project without the repository's commit history:
-`git clone --depth=1 https://github.com/Priteshkumarp/amobee-test.git`
+`git clone`
 - `npm install` to install dependencies
 - `npm run start` to start app on development server (localhost:8080)
 - `npm run build` to generate production build in public/ directory.
