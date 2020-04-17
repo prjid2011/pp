@@ -3,16 +3,17 @@ import config from './common/config';
 
 import views from './views/views.module';
 
+
 import '@uirouter/angularjs';
 import 'angular-local-storage';
-
 import './common/app.scss';
+
 
 angular
   .module(config.appName, [
     views,
     'ui.router',
-    'LocalStorageModule'
+    'LocalStorageModule',
   ])
   .config(['$stateProvider', '$locationProvider', ($stateProvider, $locationProvider) => {
     Object.keys(config.stateUrls).forEach(stateKey => {

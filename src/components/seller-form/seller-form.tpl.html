@@ -7,45 +7,105 @@
           <div class="row">
             <div class="col-sm-12">
               <div class="panel">
-                <form>
-                  <div class="form-group">
-                    <label for="sellerName">Seller Name</label>
-                    <input type="text" class="form-control" placeholder="Seller Name">
-                  </div>
-                  <div class="form-group">
-                    <label for="Countries">Countries</label>
-                    <div class="dropdown">
-                      <button class="btn btn-secondary dropdown-toggle" type="button" 
-                      id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Dropdown button
-                      </button>
-                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <span>UK</span>
-                        <span>USA</span>
-                        <span>USA</span>
-                        <span>FR</span>
+                <form ng-submit="$ctrl.submit()" name="sellerDetail">
+                  <!-- <h1>Seller Form</h1> -->
+                    <div class="form-group">
+                        <label class="col-sm-2 col-form-label">Seller Name*</label>  
+                        <div class="col-sm-10">
+                            <input ref="sellerName" type="text" class="form-control" id="sellerName" ng-model="$ctrl.sellerName"/>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-2 col-form-label">Currencies*</label>  
+                        <div class="col-sm-10">
+                            <select id="currencies" class="form-control" name="currencies" ng-model="$ctrl.currencies">
+                                <option value="USD">USD</option>
+                                <option value="GBP">GBP</option>
+                                <option value="INR">INR</option>
+                                <option value="RMB">RMB</option>
+                            </select>
+                        </div>
+                    </div>
+              
+                    <div class="form-group">
+                        <label class="col-sm-2 col-form-label">Offices*</label>
+                        <div class="col-sm-10">
+                            <select id="offices" class="form-control" name="officeval" ng-model="$ctrl.office">
+                                <option value="volvo">CA</option>
+                                <option value="saab">AHD</option>
+                                <option value="fiat">LND</option>
+                                <option value="audi">DL</option>
+                            </select>  
+                        </div>
+                    </div>
+              
+                    <div class="form-group form-check">
+                        <label class="col-sm-2 col-form-label">Deal Type</label>  
+                        <div class="col-sm-10">
+                            <input type="checkbox" class="form-check-input" id="dealTypeBided" name="dealTypeBided" value="" ng-model="$ctrl.dealTypeBided">
+                            <label class="form-check-label">Bided</label>
+                            <input type="checkbox" class="form-check-input" id="dealTypeGuaranteed" name="dealTypeGuaranteed" value="" ng-model="$ctrl.dealTypeGuaranteed">
+                            <label class="form-check-label">Guranteed</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="col-sm-2 col-form-label">Contact Name</label>
+                        <div class="col-sm-10">
+                            <input ref="contactName" type="text" class="form-control" id="contactName" ng-model="$ctrl.contactName"/>
+                        </div>
+                    </div>
+              
+                    <div class="form-group">
+                      <label class="col-sm-2 col-form-label">Email</label>
+                      <div class="col-sm-10">
+                          <input ref="email" type="email" class="form-control" id="email" ng-model="$ctrl.email"/>
                       </div>
                     </div>
-                  </div>
-                  <div class="form-group">
-                    <label for="Offices">Offices</label>
-                    <input type="text" class="form-control" placeholder="Offices">
-                  </div>
-                  <div class="form-group">
-                    <label for="dealType">Deal Type</label>
-                    <input type="text" class="form-control" placeholder="Deal Type">
-                  </div>
-                  <div class="form-group">
-                    <label for="contactName">Contact Name</label>
-                    <input type="text" class="form-control" placeholder="Contact Name">
-                  </div>
-                  <div class="form-group">
-                    <label for="email">Email</label>
-                    <input type="text" class="form-control" placeholder="Email">
-                  </div>
-                  <button type="submit" class="btn btn-primary">Save</button>
-                  <button class="btn btn-warning">Cancel</button>
+              
+                    <div class="form-group">
+                        <input type="button" class="btn btn-default" ngclick="$ctrl.clear()"  value="Cancel"/>
+                        <input type="submit" class="btn btn-default" value="Save"/>
+                    </div>
                 </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Seller List</div>
+      <div class="panel-body">
+        <div class="pad-btm">
+          <div class="row">
+            <div class="col-sm-12">
+              <div class="panel">
+                <div class="container">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Seller Name</th>
+                        <th scope="col">Currencies</th>
+                        <th scope="col">Bidded Deals</th>
+                        <th scope="col">Guranteed Deals</th>
+                        <th scope="col">Contact Name</th>
+                        <th scope="col">Email</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr ng-repeat="seller in $ctrl.sellerList track by $index">
+                        <th scope="row">{{seller.sellerName}}</th>
+                        <td>{{seller.currencies}}</td>
+                        <td>{{seller.office}}</td>
+                        <td>{{seller.dealTypeBided}}</td>
+                        <td>{{seller.dealTypeGuaranteed}}</td>
+                        <td>{{seller.email}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>

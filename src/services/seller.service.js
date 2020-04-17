@@ -4,11 +4,15 @@ export default {
     let uid = 1;
     // Set the initial value of table 
     const sellerList = [{
-        id: 0,
-        name: 'Steve John',
-        email: 'john@gmail.com',
-        password: 'John123',
-        phone: '911-91-199-999'}];
+      id: 1,
+      sellerName: 'test1',
+      currencies: 'INR',
+      office: 'GBP',
+      dealTypeBided: true,
+      dealTypeGuaranteed: false,
+      contactName: 'Pritesh',
+      email: 'pritesh@gmai.com',
+    }];
     
     // Save the seller data
     const save = (seller) => {
