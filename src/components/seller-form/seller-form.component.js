@@ -9,16 +9,24 @@ export default angular
   .component('sellerForm', {
     template,
     controller: ['sellerService', function (sellerService) {
-      const obj = {
-        id: 0,
-        name: 'Steve John',
-        email: 'john@gmail.com',
-        password: 'John123',
-        phone: '911-91-199-999'
-      };
-      this.name = 'test';
-      // Need to updated dependency-injection for get the services
-      sellerService.save(obj);
+      this.name = 'Seller Form';
+      this.clear = function() {
+        this.sellerName = ''
+      }
+      this.submit = function() {
+        console.log(this.currency);
+        let tempData = {
+          sellerName: this.sellerName,
+          currencies: this.currencies,
+          office: this.office,
+          dealTypeBided: this.dealTypeBided,
+          dealTypeGuaranteed: this.dealTypeGuaranteed,
+          contactName: this.contactName,
+          email: this.email	
+        }
+        sellerService.save(tempData);
+      }
+      this.sellerList = sellerService.list();
     }],
   })
   .name;
